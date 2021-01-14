@@ -12,10 +12,19 @@
   </head>
 
   <body>
-    <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <div class="banner">
+      <div class="background-content">
+        <h1>Do it yourself...or</h1>
+        <h1>... RentArtisan</h1>
+        <br>
+      </div>
+    </div>
+    <%= yield %>
+
+
   </body>
 </html>
