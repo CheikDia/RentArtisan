@@ -30,6 +30,9 @@
     <%= f.input :region,
                 hint: "we need your region",
                 required: true %>
+   <%= f.input :skill_id, as: :select, collection: Skill.all.map { |skill| skill.name },
+                hint: "Register as an artisan",
+                required: false %>
   </div>
 
   <div class="form-actions col-sm-3">

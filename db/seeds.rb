@@ -12,14 +12,37 @@ puts 'Creating 100 fake users...'
 
 User.destroy_all
 
-100.times do
+5.times do
   user = User.new(
     name:    Faker::FunnyName.name,
     description: Faker::Lorem.paragraph,
     region: Faker::Address.state,
     email: Faker::Internet.email,
-    password: Faker::Internet.password(min_length: 6)
+    password: 'password'
       )
   user.save!
 end
 puts 'Finished!'
+
+
+skill_1 = Skill.create(
+  name: "Electricien",
+  )
+
+skill_2 = Skill.create(
+  name: "Plombier",
+  )
+
+skill_3 = Skill.create(
+  name: "Chauffagiste",
+  )
+
+skill_4 = Skill.create(
+  name: "Carreleur",
+  )
+
+skill_5 = Skill.create(
+  name: "Entreprise generale du batiment",
+  )
+
+

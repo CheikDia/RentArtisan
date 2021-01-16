@@ -13,8 +13,12 @@ class SkillsController < ApplicationController
 
   def create
     @skill = Skill.new(skill_params)
-    @skill.save
-    redirect_to skill_path(@skill)
+    @skill.user = current_user
+    if @skill.save
+      redirect_to skill_path(@skill)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -34,6 +38,6 @@ class SkillsController < ApplicationController
   end
 
   def skill_params
-    params.require(:skill).permit(:skill)
+    params.require(:skill).permit(:name)
   end
 end

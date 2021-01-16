@@ -1,0 +1,6 @@
+<h1> Skills Index</h1>
+
+<% @skills.each do |skill|%>
+  <%= link_to skill.name, skill_path(skill)%>
+
+<%end%>
