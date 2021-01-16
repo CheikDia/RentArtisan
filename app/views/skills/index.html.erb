@@ -22,12 +22,10 @@
 
     <%= cl_image_tag(skill.photo.key, class: "card-img-top")%>
     <div class="card-body d-flex align-items">
-      <p class="card-title"><%= link_to skill.name, skill_path(skill)  %>
-        </p>
+      <p class="card-title "> <%= skill.name%> </p>
 
-
-      <a href="#" class="btn btn-primary">Voir plus</a>
     </div>
+    <a href="<%=skill_path(skill)%>" class="btn btn-primary">Voir plus</a>
   </div>
   <%end%>
 </div>
