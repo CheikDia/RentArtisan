@@ -1,8 +1,35 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<% if user_signed_in? %>
-    <h2>I am logged in</h2>
-    <p> <%=current_user %></p>
-<% else %>
-    <h2>I am not logged in </h2>
-<% end %>
+<div class="banner">
+    <div class="background-content">
+        <h1>Do it yourself... or</h1>
+        <h2>... RentArtisan !</h2>
+        <br>
+    </div>
+</div>
+<div class="content d-flex space-between"> 
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-3 p-2">
+            <%= image_tag "https://res.cloudinary.com/dvateiuot/image/upload/w_1000,ar_1:1,c_fill,g_auto,e_art:hokusai/v1610626349/Artisan_HomePage_v2_ewfoyp.jpg", width: 360, height: 300, crop: :fill %>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 p-2">
+            <%= image_tag "https://res.cloudinary.com/dvateiuot/image/upload/v1610626349/HomePage_v6_p1la1c.jpg", width: 360, height: 300, crop: :fill %>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 p-2">
+            <%= image_tag "https://res.cloudinary.com/dvateiuot/image/upload/v1610626349/Artisan_HomePage_v4_bwyqao.jpg", width: 360, height: 300, crop: :fill %>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 p-2">
+            <%= image_tag "https://res.cloudinary.com/dvateiuot/image/upload/v1610626349/HomePage_v7_wgufsy.jpg", width: 360, height: 300, crop: :fill %>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 p-2">
+            <%= image_tag "https://res.cloudinary.com/dvateiuot/image/upload/v1610626349/HomePage_v8_p9rdd4.jpg", width: 360, height: 300, crop: :fill %>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 p-2">
+            <%= image_tag "https://res.cloudinary.com/dvateiuot/image/upload/v1610626349/HomePage_v10_ojayq5.jpg", width: 360, height: 300, crop: :fill %>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 p-2">
+            <%= image_tag "https://res.cloudinary.com/dvateiuot/image/upload/v1610626349/HomePage_v9_sqshbw.jpg", width: 360, height: 300, crop: :fill %>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3 p-2">
+            <%= image_tag "https://res.cloudinary.com/dvateiuot/image/upload/v1610626349/HomePage_v10_ojayq5.jpg", width: 360, height: 300, crop: :fill %>
+        </div>
+    </div>
+</div>
