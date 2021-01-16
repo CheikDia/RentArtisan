@@ -1,12 +1,14 @@
 <div class="container">
   <div class="row">
-    <h1>Nouveau skills</h1>
+    <h1>Add your new skill</h1>
   </div>
   <div class="row">
     <%= simple_form_for @skill do |f| %>
       <%= f.input :name %>
-      <%= f.submit %>
+      <%= f.input :photo, as: :file %>
+      <%= f.button :submit, 'Create Skill', class:'btn btn-primary'  %>
     <% end %>
   </div>
+
 </div>
 

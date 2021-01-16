@@ -7,9 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+require "open-uri"
 
 puts 'Creating 100 fake users...'
 
+Skill.destroy_all
 User.destroy_all
 
 5.times do
@@ -25,24 +27,50 @@ end
 puts 'Finished!'
 
 
-skill_1 = Skill.create(
+skill_1 = Skill.new(
   name: "Electricien",
+  user: User.all.to_a.sample
   )
+  file = URI.open("https://www.connaissancedesenergies.org/sites/default/files/styles/image_530_px_large/public/image_article/Fourniture-electricite-dossier_0.jpg?itok=l6YL8mJY")
+  skill_1.photo.attach(io: file, filename: 'electricien')
+  skill_1.save
 
-skill_2 = Skill.create(
+skill_2 = Skill.new(
   name: "Plombier",
-  )
+  user: User.all.to_a.sample
 
-skill_3 = Skill.create(
+  )
+file = URI.open("https://res.cloudinary.com/dvateiuot/image/upload/v1610807282/Plombier_q3eauv.jpg")
+  skill_2.photo.attach(io: file, filename: 'plombier')
+  skill_2.save
+
+skill_3 = Skill.new(
   name: "Chauffagiste",
-  )
+  user: User.all.to_a.sample
 
-skill_4 = Skill.create(
+  )
+file = URI.open("https://res.cloudinary.com/dvateiuot/image/upload/v1610626349/HomePage_v6_p1la1c.jpg")
+  skill_3.photo.attach(io: file, filename: 'chauffagiste')
+  skill_3.save
+
+
+skill_4 = Skill.new(
   name: "Carreleur",
+  user: User.all.to_a.sample
+
   )
 
-skill_5 = Skill.create(
+file = URI.open("https://res.cloudinary.com/dvateiuot/image/upload/v1610807282/carreleur_w6cfzg.jpg")
+  skill_4.photo.attach(io: file, filename: 'carreleur')
+  skill_4.save
+
+
+skill_5 = Skill.new(
   name: "Entreprise generale du batiment",
-  )
+  user: User.all.to_a.sample
 
+  )
+file = URI.open("https://res.cloudinary.com/dvateiuot/image/upload/v1610626349/Artisan_HomePage_v5_fhdbdi.jpg")
+  skill_5.photo.attach(io: file, filename: 'entreprise_generale')
+  skill_5.save
 
