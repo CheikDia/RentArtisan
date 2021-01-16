@@ -1,6 +1,8 @@
 class SkillsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   def index
     @skills = Skill.all
+
   end
 
   def show
@@ -38,6 +40,6 @@ class SkillsController < ApplicationController
   end
 
   def skill_params
-    params.require(:skill).permit(:name)
+    params.require(:skill).permit(:name, :photo)
   end
 end

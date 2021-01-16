@@ -1,6 +1,6 @@
 <h1>Show</h1>
 <h2><%= @skill.name %></h2>
 
-<%= @skill.user.name %>
+<%= @skill.photo %>
 
-<%= raise %>
+<%= cl_image_tag @skill.photo.key %>

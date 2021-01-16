@@ -12,7 +12,14 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "Add your skill", new_skill_path, class: "nav-link" %>
+          <%= link_to "Add a skill", new_skill_path, class: "nav-link" %>
+        </li>
+         <li class="nav-item">
+          <%= link_to "All skills", skills_path, class: "nav-link" %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to "My skills", my_skills_path, class: "nav-link" %>
         </li>
         <li class="nav-item active">
           <%= link_to "Home", "#", class: "nav-link" %>
@@ -21,7 +28,7 @@
           <%= link_to "Messages", "#", class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "https://res.cloudinary.com/dvateiuot/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1610806933/Donald_faf4wu.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
@@ -29,8 +36,12 @@
         </li>
       <% else %>
         <li class="nav-item">
+          <%= link_to "All skills", skills_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>
+
       <% end %>
     </ul>
   </div>
