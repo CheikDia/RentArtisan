@@ -5,6 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :skills
+  has_many :bookings
   validates :name, presence: true
   validates :description, presence: true
   validates :region, presence: true
