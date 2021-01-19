@@ -1,27 +1,36 @@
 .banner {
-  background-image: url("https://res.cloudinary.com/dvateiuot/image/upload/v1610626349/HomePage_vvisex.jpg");
-  color: white;
-  text-align: center;
-  height: 600px;
+  background-image: url("https://res.cloudinary.com/dsmqbxlgi/image/upload/v1610830743/roselyn-tirado-GDWmu0bFfS4-unsplash_vrlq9g.jpg");
+  background-color: #cccccc;
+  filter: saturate(10px);
+  opacity: 0.8;
+  text-align: left;
+  height: 550px;
   background-size: cover !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 32px;
+  // margin-bottom: 32px;
 }
+
+// .banner background-content {
+//   filter: saturate(100px);
+//   opacity: 1;
+
+// }
+
 .banner h1 {
-  font-size: 50px;
+  font-size: 40px;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-  color:lightgray;
+  color:white;
   opacity: 1;
 }
 .banner h2 {
-  font-size: 60px;
+  font-size: 50px;
   font-weight: bold;
   font-style: italic;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
-  color: lightcoral;
+  color: #E67E22;
   opacity: 1;
 }
 .banner p {
