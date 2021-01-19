@@ -6,11 +6,12 @@
   <%= cl_image_tag @skill.photo.key %>
 </div>
 
-<div class="container">
+<div class="container justify-content-center">
   <p> It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.%></p>
 </div>
-
-
+</div>
+  <%= link_to "Book", new_skill_booking_path(@skill), class: "btn btn-primary" %>
+</div>
 
 </div>
 

@@ -3,4 +3,8 @@ class PagesController < ApplicationController
   
   def home
   end
+
+  def dashboard
+    @skills = current_user.skills
+  end
 end
