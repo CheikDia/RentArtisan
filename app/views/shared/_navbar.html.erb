@@ -1,12 +1,11 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
+  <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "https://res.cloudinary.com/dvateiuot/image/upload/v1610807132/logo_mgtbjl.png" %>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -15,7 +14,7 @@
           <%= link_to "Add a skill", new_skill_path, class: "nav-link" %>
         </li>
          <li class="nav-item">
-          <%= link_to "All skills", skills_path, class: "nav-link" %>
+          <%= link_to "Les métiers", skills_path, class: "nav-link" %>
         </li>
 
         <li class="nav-item">
@@ -36,11 +35,18 @@
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "All skills", skills_path, class: "nav-link" %>
+          <%= link_to "Les métiers", skills_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Tous les artisans", skills_path, class: "nav-link" %>
         </li>
+        <li class="nav-item">
+          <%= link_to "Inscription",new_user_registration_path, class: "nav-link" %>
+        </li>
+        <!-- <li class="nav-item"> -->
+
+          <%= link_to "Connexion", new_user_session_path, class: "btn-ghost" %>
+        <!-- </li> -->
 
       <% end %>
     </ul>
