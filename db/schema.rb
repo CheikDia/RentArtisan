@@ -70,15 +70,12 @@ ActiveRecord::Schema.define(version: 2021_01_21_180824) do
     t.string "name"
     t.string "description"
     t.string "region"
-    t.bigint "skill_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["skill_id"], name: "index_users_on_skill_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "skills"
   add_foreign_key "bookings", "users"
   add_foreign_key "skills", "users"
-  add_foreign_key "users", "skills"
 end
