@@ -34,7 +34,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'cloudinary', '~> 1.16.0'
 gem 'bootstrap'
-
+gem 'pg_search',  '~> 2.3.0'
 
 
 group :development, :test do

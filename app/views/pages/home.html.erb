@@ -4,15 +4,27 @@
 
         <h1>Do it yourself or ... RentArtisan !</h1>
         <br>
-        <a href="<%=skills_path%>" class="btn btn-flat">Trouvez un artisan</a>
+        <a href="<%=skills_path%>" class="btn btn-flat">See all craftmen</a>
+        <p></p>
+        <%= form_tag skills_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "or enter here the skill you are looking for"
+          %>
+          <%= submit_tag "See all craftmen with that skill", class: "btn btn-flat" %>
+        <% end %>
     </div>
   </div>
 </div>
 
+<div class="container">
+  
+</div>
 
 <div class="container-fluid bg-light p-9 m-6">
   <h2 class="text-center">
-    Choisissez des artisans de confiance pour vos travaux.
+    Select trusted craftmen for your construction or restoration works 
   </h2>
 
   <p class="text-center">

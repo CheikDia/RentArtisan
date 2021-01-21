@@ -1,8 +1,12 @@
 class SkillsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
-  def index
-    @skills = Skill.all
 
+  def index
+    if params[:query].present?
+      @skills = Skill.search_skill(params[:query])
+    else 
+      @skills = Skill.all
+    end
   end
 
   def show
