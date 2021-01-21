@@ -1,9 +1,39 @@
 <div class="container text-center">
+ <h1>Dashboard</h1>
 
-  <h1> Vos services</h1>
+  <h2> Edit your profile</h2>
+
+  </div>
+
+  <h2> Your bookings </h2>
+    <% if @booking.nil?%>
+    <p>You currently have <%= Booking.where(confirmed: false).count%> booking waiting : </p>
+
+    <% Booking.where(confirmed: false).each do |booking|%>
+      <%= booking.start_date%>
+      <%= booking.end_date%>
+      <%= booking.confirmed%>
+    <%end%>
+
+    <p>Your have <%= Booking.where(confirmed: true).count%> confirmed booking : </p>
+
+    <% Booking.where(confirmed: true).each do |booking|%>
+      <%= booking.start_date%>
+      <%= booking.end_date%>
+      <%= booking.confirmed%>
+    <%end%>
+
+    <% else %>
+      <p> You have no booking </p>
+    <%end%>
+
+
+
+
+    <h2> Your skills : </h2>
     <% @skills.each do |skill|%>
     <div class="cards">
       <%= skill.name%>
     <%end%>
-  </div>
-</div>
+    </div>
+
