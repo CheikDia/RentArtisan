@@ -29,7 +29,9 @@ puts 'Finished!'
 
 skill_1 = Skill.new(
   name: "Electricien",
-  user: User.all.to_a.sample
+  user: User.all.to_a.sample,
+  unit_price: 50,
+  rating: 4,
   )
   file = URI.open("https://www.connaissancedesenergies.org/sites/default/files/styles/image_530_px_large/public/image_article/Fourniture-electricite-dossier_0.jpg?itok=l6YL8mJY")
   skill_1.photo.attach(io: file, filename: 'electricien')
@@ -37,8 +39,9 @@ skill_1 = Skill.new(
 
 skill_2 = Skill.new(
   name: "Plombier",
-  user: User.all.to_a.sample
-
+  user: User.all.to_a.sample,
+  unit_price: 40,
+  rating: 3,
   )
 file = URI.open("https://res.cloudinary.com/dvateiuot/image/upload/v1610807282/Plombier_q3eauv.jpg")
   skill_2.photo.attach(io: file, filename: 'plombier')
@@ -46,7 +49,9 @@ file = URI.open("https://res.cloudinary.com/dvateiuot/image/upload/v1610807282/P
 
 skill_3 = Skill.new(
   name: "Chauffagiste",
-  user: User.all.to_a.sample
+  user: User.all.to_a.sample,
+  unit_price: 100,
+  rating: 3,
 
   )
 file = URI.open("https://res.cloudinary.com/dvateiuot/image/upload/v1610626349/HomePage_v6_p1la1c.jpg")
@@ -56,8 +61,9 @@ file = URI.open("https://res.cloudinary.com/dvateiuot/image/upload/v1610626349/H
 
 skill_4 = Skill.new(
   name: "Carreleur",
-  user: User.all.to_a.sample
-
+  user: User.all.to_a.sample,
+  unit_price: 20,
+  rating: 3,
   )
 
 file = URI.open("https://res.cloudinary.com/dvateiuot/image/upload/v1610807282/carreleur_w6cfzg.jpg")
@@ -67,8 +73,9 @@ file = URI.open("https://res.cloudinary.com/dvateiuot/image/upload/v1610807282/c
 
 skill_5 = Skill.new(
   name: "Entreprise generale du batiment",
-  user: User.all.to_a.sample
-
+  user: User.all.to_a.sample,
+  unit_price: 180,
+  rating: 5,
   )
 file = URI.open("https://res.cloudinary.com/dvateiuot/image/upload/v1610626349/Artisan_HomePage_v5_fhdbdi.jpg")
   skill_5.photo.attach(io: file, filename: 'entreprise_generale')
