@@ -8,32 +8,71 @@
   <h2> Your bookings </h2>
     <% if @booking.nil?%>
     <p>You currently have <%= Booking.where(confirmed: false).count%> booking waiting : </p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">User Email</th>
+            <th scope="col">Skill</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% counter = 0 %>
+          <tr>
+          <% Booking.where(confirmed: false).each do |booking|%>
+            <th scope="col"><%= counter += 1 %></th>
+            <th scope="col"><%= booking.user.name%></th>
+            <th scope="col"><%= booking.skill.name%></th>
+            <th scope="col"><%= booking.start_date%></th>
+            <th scope="col"><%= booking.end_date%></th>
+            <th scope="col"><%= booking.confirmed%></th>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
 
-    <% Booking.where(confirmed: false).each do |booking|%>
-      <%= booking.start_date%>
-      <%= booking.end_date%>
-      <%= booking.confirmed%>
-    <%end%>
 
     <p>Your have <%= Booking.where(confirmed: true).count%> confirmed booking : </p>
 
-    <% Booking.where(confirmed: true).each do |booking|%>
-      <%= booking.start_date%>
-      <%= booking.end_date%>
-      <%= booking.confirmed%>
-    <%end%>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">User Email</th>
+            <th scope="col">Skill</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% counter = 0 %>
+          <tr>
+          <% Booking.where(confirmed: true).each do |booking|%>
+            <th scope="col"><%= counter += 1 %></th>
+            <th scope="col"><%= booking.user.name%></th>
+            <th scope="col"><%= booking.skill.name%></th>
+            <th scope="col"><%= booking.start_date%></th>
+            <th scope="col"><%= booking.end_date%></th>
+            <th scope="col"><%= booking.confirmed%></th>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
 
     <% else %>
       <p> You have no booking </p>
     <%end%>
 
 
-
-
+<!--
     <h2> Your skills : </h2>
     <% @skills.each do |skill|%>
     <div class="cards">
       <%= skill.name%>
     <%end%>
     </div>
-
+ -->
