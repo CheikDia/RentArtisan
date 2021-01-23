@@ -1,16 +1,19 @@
 <div class="container">
-  <h1><%= @skill.name %></h1>
-  <h2><%= @skill.unit_price %>€ per day</h2>
-  <div class="container justify-content-center">
-    <div class="image">
-    <%= cl_image_tag @skill.photo.key %>
-    </div>
-    <p><%=@skill.description%></p>
-    <% if @skill.user == current_user%>
-      <%= link_to "Go to your dashboard", dashboard_path(@skill), class: "btn btn-primary" %>
-    <% else %>
-      <%= link_to "Book", new_skill_booking_path(@skill), class: "btn btn-primary" %>
-    <% end %>
-    
+  <div class="row text-center d-flex justify-content-between", style="width:700px, margin: 0 auto, background:white">
+    <div class="image" style="padding: 0px">
+      <%= cl_image_tag @skill.photo.key, width: 400, :aspect_ratio=>"4:3", :crop=>"fill" %>
+    </div>   
+    <div class="description", style="display: flex; align-items: center; justify-content: center; padding: 30px; flex-grow:1">
+      <div>
+        <h1><%= @skill.name %></h1>
+        <h2><%= @skill.unit_price %>€ per day</h2>
+        <p><%=@skill.description%></p>
+        <% if @skill.user == current_user%>
+          <%= link_to "Go to your dashboard", dashboard_path(@skill), class: "btn btn-primary" %>
+        <% else %>
+          <%= link_to "Book", new_skill_booking_path(@skill), class: "btn btn-primary" %>
+        <% end %>
+      </div>
+  </div>    
   </div>
 </div>
