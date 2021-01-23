@@ -4,8 +4,6 @@
 
         <h1>Do it yourself or ... RentArtisan !</h1>
         <br>
-        <a href="<%=skills_path%>" class="btn btn-flat">See all craftmen</a>
-        <p></p>
         <%= form_tag skills_path, method: :get do %>
           <%= text_field_tag :query,
             params[:query],
@@ -18,52 +16,30 @@
   </div>
 </div>
 
-<div class="container">
-  
-</div>
 
 <div class="container-fluid bg-light p-9 m-6">
   <h2 class="text-center">
-    Select trusted craftmen for your construction or restoration works 
+    Find the best craftmen for your construction or restoration works 
   </h2>
 
-  <p class="text-center">
-    Sur RentArtisan, nous sélectionnons des artisans fiables et recommandés.<br>
-    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-  </p>
-</div>
-
-
-<div class="content d-flex space-between">
   <div class="row">
     <div class="col-12 col-md-6 col-lg-3 p-2">
-      Paiement Sécurisé
+      Secure payment
     </div>
     <div class="col-12 col-md-6 col-lg-3 p-2">
-      Artisans sélectionnés
+      Trusted and reliable artisans
     </div>
     <div class="col-12 col-md-6 col-lg-3 p-2">
-      Service Client
+      Customer care
     </div>
     <div class="col-12 col-md-6 col-lg-3 p-2">
-      Devis fixe & fiable
+      Fixed & Reliable quotations
     </div>
-
   </div>
-</div>
 
 <div class="container-fluid">
-  <h2 class="text-left">
+  <h2 class="text-center">
 Last booked skills :
-
-  </h2>
-
-
-</div>
-
-
-
-
 
 
 <div class="container-fluid">

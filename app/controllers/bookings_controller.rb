@@ -19,7 +19,8 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.skill = @skill
     if @booking.save
-      redirect_to skill_path(@skill)
+      #redirect_to skill_path(@skill)
+      redirect_to dashboard_path(@skill)
     else
       render :new
     end
