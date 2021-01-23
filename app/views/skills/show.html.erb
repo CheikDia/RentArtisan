@@ -5,6 +5,12 @@
     <div class="image">
     <%= cl_image_tag @skill.photo.key %>
     </div>
-    <%= link_to "Book", new_skill_booking_path(@skill), class: "btn btn-primary" %>
+    <p><%=@skill.description%></p>
+    <% if @skill.user == current_user%>
+      <%= link_to "Go to your dashboard", dashboard_path(@skill), class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to "Book", new_skill_booking_path(@skill), class: "btn btn-primary" %>
+    <% end %>
+    
   </div>
 </div>

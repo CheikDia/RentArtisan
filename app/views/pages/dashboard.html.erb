@@ -17,6 +17,7 @@
             <th scope="col">Start Date</th>
             <th scope="col">End Date</th>
             <th scope="col">Status</th>
+            <th scope="col">Pricing</th>
           </tr>
         </thead>
         <tbody>
@@ -29,6 +30,8 @@
             <th scope="col"><%= booking.start_date%></th>
             <th scope="col"><%= booking.end_date%></th>
             <th scope="col"><%= booking.confirmed%></th>
+            <th scope="col"><%= (((booking.end_date - booking.start_date)+ 1)*booking.skill.unit_price).to_i %>€</th>
+
           </tr>
         <%end%>
       </tbody>
