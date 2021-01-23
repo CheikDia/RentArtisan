@@ -3,10 +3,10 @@
 
   <!-- Partie pour les users -->
   <h2> Your bookings </h2>
-  <% if @booking_waiting.nil? %>
-    <%# <p> You have no booking </p> %>
+  <% if @bookings.nil? %>
+    <p> You have no booking </p>
   <% else %>
-    <p>You currently have <%= @booking_waiting.count%> booking waiting : </p>
+    <p>You currently have <%= @bookings.count%> booking waiting : </p>
     <table class="table">
       <thead>
         <tr>
@@ -36,8 +36,9 @@
       </tbody>
     </table>
   <% end %>
-  
-  
+
+
+
   <!-- partie pour les artisans -->
   <h2>Craftsman</h2>
   <% if @skills.nil? %>
