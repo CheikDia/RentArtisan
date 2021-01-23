@@ -5,6 +5,8 @@
   <div class="row">
     <%= simple_form_for @skill do |f| %>
       <%= f.input :name %>
+      <%= f.input :unit_price %>
+      <%= f.input :description %>
       <%= f.input :photo, as: :file %>
       <%= f.button :submit, 'Create Skill', class:'btn btn-primary'  %>
     <% end %>

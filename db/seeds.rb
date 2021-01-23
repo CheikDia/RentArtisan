@@ -31,6 +31,7 @@ skill_1 = Skill.new(
   name: "Electricien",
   user: User.all.to_a.sample,
   unit_price: 50,
+  description: "I'm the best Electricien",
   rating: 4,
   )
   file = URI.open("https://www.connaissancedesenergies.org/sites/default/files/styles/image_530_px_large/public/image_article/Fourniture-electricite-dossier_0.jpg?itok=l6YL8mJY")
@@ -41,6 +42,7 @@ skill_2 = Skill.new(
   name: "Plombier",
   user: User.all.to_a.sample,
   unit_price: 40,
+  description: "I'm the best Plombier",
   rating: 3,
   )
 file = URI.open("https://res.cloudinary.com/dvateiuot/image/upload/v1610807282/Plombier_q3eauv.jpg")
@@ -51,6 +53,7 @@ skill_3 = Skill.new(
   name: "Chauffagiste",
   user: User.all.to_a.sample,
   unit_price: 100,
+  description: "I'm the best Chauffagiste",
   rating: 3,
 
   )
@@ -63,6 +66,7 @@ skill_4 = Skill.new(
   name: "Carreleur",
   user: User.all.to_a.sample,
   unit_price: 20,
+  description: "I'm the best Carreleur",
   rating: 3,
   )
 
@@ -75,6 +79,7 @@ skill_5 = Skill.new(
   name: "Entreprise generale du batiment",
   user: User.all.to_a.sample,
   unit_price: 180,
+  description: "I'm the best Entrepreneur",
   rating: 5,
   )
 file = URI.open("https://res.cloudinary.com/dvateiuot/image/upload/v1610626349/Artisan_HomePage_v5_fhdbdi.jpg")
