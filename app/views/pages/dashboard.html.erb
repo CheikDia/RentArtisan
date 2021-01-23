@@ -1,115 +1,84 @@
 <div class="container text-center">
- <h1>Dashboard</h1>
-
-</div>
+  <h1>Dashboard</h1>
 
   <!-- Partie pour les users -->
-    <h2> Your bookings </h2>
-    <% if @booking_waiting.nil? %>
-    <p> You have no booking </p>
-
-    <% else %>
-
+  <h2> Your bookings </h2>
+  <% if @booking_waiting.nil? %>
+    <%# <p> You have no booking </p> %>
+  <% else %>
     <p>You currently have <%= @booking_waiting.count%> booking waiting : </p>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">User</th>
-            <th scope="col">Skill</th>
-            <th scope="col">Start Date</th>
-            <th scope="col">End Date</th>
-            <th scope="col">Price / day</th>
-            <th scope="col">Pricing</th>
-            <th scope="col">Confirmation</th>
-            <th scope="col">Contact Craftsman</th>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Skill</th>
+          <th scope="col">Start Date</th>
+          <th scope="col">End Date</th>
+          <th scope="col">Price per day</th>
+          <th scope="col">Total Pricing</th>
+          <th scope="col">Contact Craftsman</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% counter = 0 %>
+        <% @bookings.each do |booking|%>
+          <% color_class = booking.confirmed ? "text-success" : "text-danger" %>
+          <tr class="<%= color_class %>">
+            <th scope="col"><%= counter += 1 %></th>
+            <th scope="col"><%= booking.skill.name%></th>
+            <th scope="col"><%= booking.start_date%></th>
+            <th scope="col"><%= booking.end_date%></th>
+            <th scope="col"><%= booking.skill.unit_price%></th>
+            <th scope="col"><%= (((booking.end_date - booking.start_date)+ 1)*booking.skill.unit_price).to_i %>€</th>
+            <th scope="col"><%= booking.skill.user.name%></th>
           </tr>
-        </thead>
-        <tbody>
+        <%end%>
+      </tbody>
+    </table>
+  <% end %>
+  
+  
+  <!-- partie pour les artisans -->
+  <h2>Craftsman</h2>
+  <% if @skills.nil? %>
+    <%= link_to "Propose your skills", new_skill_path %>
+    <p>Propose your skills</p>
+  <% else %>
+    <p>Manage your bookings</p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Skill</th>
+          <th scope="col">Start Date</th>
+          <th scope="col">End Date</th>
+          <th scope="col">Price per day</th>
+          <th scope="col">Total Pricing</th>
+          <th scope="col">Confirmation</th>
+        </tr>
+      </thead>
+      <tbody>
         <% counter = 0 %>
-          <tr>
-          <% @booking_waiting.each do |booking|%>
+        <% @bookings_as_owner.each do |booking|%>
+          <% color_class = booking.confirmed ? "text-success" : "text-warning" %>
+          <tr class="<%= color_class %>">
             <% duration = (booking.end_date - booking.start_date).to_i %>
             <th scope="col"><%= counter += 1 %></th>
-            <th scope="col"><%= booking.user.name%></th>
             <th scope="col"><%= booking.skill.name%></th>
             <th scope="col"><%= booking.start_date%></th>
             <th scope="col"><%= booking.end_date%></th>
-            <th scope="col"><%= booking.confirmed%></th>
+            <th scope="col"><%= booking.skill.unit_price%></th>
             <th scope="col"><%= (((booking.end_date - booking.start_date)+ 1)*booking.skill.unit_price).to_i %>€</th>
-            <th scope="col"><%= booking.user_id%></th>
+            <th scope="col">
+              <% if booking.confirmed  %>
+                Confirmed
+              <% else %>
+                <%= link_to "Confirm",  confirm_booking_path(booking), method: :patch %>
+              <% end %>
+            </th>
           </tr>
-          <%end%>
-        </tbody>
-      </table>
-
-
-    <p>Your have <%= @booking_confirmed.count%> confirmed booking : </p>
-
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">User Email</th>
-            <th scope="col">Skill</th>
-            <th scope="col">Start Date</th>
-            <th scope="col">End Date</th>
-            <th scope="col">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-        <% counter = 0 %>
-          <tr>
-          <% @booking_confirmed.each do |booking|%>
-            <th scope="col"><%= counter += 1 %></th>
-            <th scope="col"><%= booking.user.name%></th>
-            <th scope="col"><%= booking.skill.name%></th>
-            <th scope="col"><%= booking.start_date%></th>
-            <th scope="col"><%= booking.end_date%></th>
-            <th scope="col"><%= booking.confirmed%></th>
-          </tr>
-          <%end%>
-        </tbody>
-      </table>
-
-
-
-    <%end%>
-<!-- fin de partie pour les users -->
-
-
-<!-- partie pour les artisans -->
-
-<h2>Craftsman</h2>
-<% if @skills.nil? %>
-    <%= link_to "Propose your skills", new_skill_path %>
-
-
-  <p>Propose your skills</p>
-
-<% else %>
-  <p>Manage your bookings</p>
-
-
-<% end %>
-
-
-
-
-<!-- fin de partie pour les artisans -->
-
-
-
-
-
-
-
-
-<!--
-    <h2> Your skills : </h2>
-    <% @skills.each do |skill|%>
-    <div class="cards">
-      <%= skill.name%>
-    <%end%>
-    </div>
- -->
+        <%end%>
+      </tbody>
+    </table>
+  <% end %>
+</div>

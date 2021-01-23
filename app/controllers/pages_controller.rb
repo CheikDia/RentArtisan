@@ -4,11 +4,9 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-
     @skills = current_user.skills
     @bookings = current_user.bookings
-    @booking_confirmed = @bookings.where(confirmed: true)
-    @booking_waiting = @bookings.where(confirmed: false)
+    @bookings_as_owner = current_user.bookings_as_owner
 
   end
 

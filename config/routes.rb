@@ -4,5 +4,10 @@ Rails.application.routes.draw do
   resources :skills do
     resources :bookings
   end
+  resources :bookings do
+    member do
+      patch :confirm
+    end
+  end
   get '/dashboard', to: 'pages#dashboard'
 end

@@ -6,6 +6,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :skills
   has_many :bookings
+  has_many :bookings_as_owner, through: :skills, source: :bookings
+
   #validates :name, presence: true
   #validates :description, presence: true
   #validates :region, presence: true
