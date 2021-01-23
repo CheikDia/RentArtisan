@@ -1,29 +1,35 @@
 <div class="container text-center">
  <h1>Dashboard</h1>
 
-  <h2> Edit your profile</h2>
+</div>
 
-  </div>
+  <!-- Partie pour les users -->
+    <h2> Your bookings </h2>
+    <% if @booking_waiting.nil? %>
+    <p> You have no booking </p>
 
-  <h2> Your bookings </h2>
-    <% if @booking.nil?%>
-    <p>You currently have <%= Booking.where(confirmed: false).count%> booking waiting : </p>
+    <% else %>
+
+    <p>You currently have <%= @booking_waiting.count%> booking waiting : </p>
       <table class="table">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">User Email</th>
+            <th scope="col">User</th>
             <th scope="col">Skill</th>
             <th scope="col">Start Date</th>
             <th scope="col">End Date</th>
-            <th scope="col">Status</th>
+            <th scope="col">Price / day</th>
             <th scope="col">Pricing</th>
+            <th scope="col">Confirmation</th>
+            <th scope="col">Contact Craftsman</th>
           </tr>
         </thead>
         <tbody>
         <% counter = 0 %>
           <tr>
-          <% Booking.where(confirmed: false).each do |booking|%>
+          <% @booking_waiting.each do |booking|%>
+            <% duration = (booking.end_date - booking.start_date).to_i %>
             <th scope="col"><%= counter += 1 %></th>
             <th scope="col"><%= booking.user.name%></th>
             <th scope="col"><%= booking.skill.name%></th>
@@ -31,14 +37,14 @@
             <th scope="col"><%= booking.end_date%></th>
             <th scope="col"><%= booking.confirmed%></th>
             <th scope="col"><%= (((booking.end_date - booking.start_date)+ 1)*booking.skill.unit_price).to_i %>€</th>
-
+            <th scope="col"><%= booking.user_id%></th>
           </tr>
-        <%end%>
-      </tbody>
-    </table>
+          <%end%>
+        </tbody>
+      </table>
 
 
-    <p>Your have <%= Booking.where(confirmed: true).count%> confirmed booking : </p>
+    <p>Your have <%= @booking_confirmed.count%> confirmed booking : </p>
 
       <table class="table">
         <thead>
@@ -54,7 +60,7 @@
         <tbody>
         <% counter = 0 %>
           <tr>
-          <% Booking.where(confirmed: true).each do |booking|%>
+          <% @booking_confirmed.each do |booking|%>
             <th scope="col"><%= counter += 1 %></th>
             <th scope="col"><%= booking.user.name%></th>
             <th scope="col"><%= booking.skill.name%></th>
@@ -62,13 +68,41 @@
             <th scope="col"><%= booking.end_date%></th>
             <th scope="col"><%= booking.confirmed%></th>
           </tr>
-        <%end%>
-      </tbody>
-    </table>
+          <%end%>
+        </tbody>
+      </table>
 
-    <% else %>
-      <p> You have no booking </p>
+
+
     <%end%>
+<!-- fin de partie pour les users -->
+
+
+<!-- partie pour les artisans -->
+
+<h2>Craftsman</h2>
+<% if @skills.nil? %>
+    <%= link_to "Propose your skills", new_skill_path %>
+
+
+  <p>Propose your skills</p>
+
+<% else %>
+  <p>Manage your bookings</p>
+
+
+<% end %>
+
+
+
+
+<!-- fin de partie pour les artisans -->
+
+
+
+
+
+
 
 
 <!--
